@@ -11,13 +11,12 @@ class IndividualNotifications():
         """
         self.message=message
         config = self.loadFileConfig()
+        self.arn=config["sns"]["ARN"]
         self.fileName=config["data_base_profile"]["name_file"]
         newDBConnection = DatabaseConnection(config["data_base"])
         self.cnx = newDBConnection.openConnection()
 
-        self.client = boto3.client("sns",
-                                   TargetArn=arn,
-                                   region_name=config["sns"]["region_name"])
+        self.client = boto3.client("sns")
 
     def sendMesagge(self,message, number):
         """
@@ -25,7 +24,9 @@ class IndividualNotifications():
         :param message: Mensaje a enviar
         :param number: número telefónico del receptor
         """
-        self.client.publish(PhoneNumber=number, Message=message)
+        self.client.publish( TargetArn = "<ARN of the SNS topic>",
+                             PhoneNumber=number,
+                             Message=message)
     def prepareMessageByProfile(self,user_profile, subscription_type):
         """
         Según el perfil de usuario, obtiene la información de todos los
