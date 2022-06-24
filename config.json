@@ -1,0 +1,16 @@
+{
+  "data_base": {
+    "HOST": "127.0.0.1",
+    "USERNAME": "admin",
+    "DB_NAME": "users",
+    "SECRET_NAME": "###############"
+  },
+  "sns": {
+    "aws_access_key_id":"jhw76321ihdsjbd879213nkjnsd32",
+    "aws_secret_access_key":"dkjhdsd0i324987ldkhfkjq7q61398u9",
+    "region_name":"us-east-1"
+  },
+  "data_base_profile":{
+    "name_file": "profileDB_id.txt"
+  }
+}
