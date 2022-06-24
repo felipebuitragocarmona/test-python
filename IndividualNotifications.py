@@ -24,7 +24,7 @@ class IndividualNotifications():
         :param message: Mensaje a enviar
         :param number: número telefónico del receptor
         """
-        self.client.publish( TargetArn = "<ARN of the SNS topic>",
+        self.client.publish( TargetArn = self.arn,
                              PhoneNumber=number,
                              Message=message)
     def prepareMessageByProfile(self,user_profile, subscription_type):
